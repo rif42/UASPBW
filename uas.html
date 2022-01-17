@@ -9,53 +9,78 @@ A11.2020.12628 -->
     <title>UAS PBW Rifky Ariya Pratama</title>
 </head>
 <body>
-    <div class=app>
-        <h2>Daftar Belanjaan</h2> <br>
-        <form>
-            <input type="text" id="newitem" name="newitem"> 
-            <input type="submit" id="submit" value="Submit">
-        </form>
-        <br><br>
-
-        <div id="container"></div>
-
-        <!-- <table id=itemtable>
-            <tr>
-                <th>No</th>
-                <th>Item</th>
-                <th>Aksi</th>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td id="item"></td>
-                <td>Edit || Delete</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>Bawang Merah</td>
-                <td>Edit || Delete</td>
-            </tr>
-          </table> -->
-    </div>
-    
+    <h2>Daftar Belanjaan</h2> <br>
+    <form>
+        <input type="text" id="newitem" name="newitem"> 
+    </form>
+    <button type="button" onclick="adddata()">Submit</button>
+    <br><br>
+    <table id=itemtable>
+        <tr>
+            <th>No</th>
+            <th>Item</th>
+            <th>Aksi</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Cabe Keriting</td>
+            <td><span >Edit</span> || Delete</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Bawang Merah</td>
+            <td><span >Edit</span> || Delete</td>
+        </tr>
+    </table>
 </body>
 
 <script>
-
-    submit.onclick = function(){
-
-        if (newdata == null){
-            alert("insert data first")
+    var numbering = 3;
+    function adddata(){    
+        var newdata = document.getElementById("newitem").value;    
+        if (newdata == ""){
+            alert("insert data first!");
         }
+        var table = document.getElementById("itemtable");
+        var row = table.insertRow(numbering);
+        var cell0 = row.insertCell(0);
+        var cell1 = row.insertCell(1);
+        var cell2 = row.insertCell(2);
 
-        var numbering = 3;
-        var newdata = document.getElementById("newitem").value;
-        data.push(numbering);
+        cell0.innerHTML = numbering;
+        cell1.innerHTML = newdata;
+        cell2.innerHTML = "Edit || Delete";
+
         numbering++;
-        data.push(newdata);
     }
 
-    var data = 
+
+        
+</script>
+
+<style>
+    table, th, td {
+        padding:5px;
+        border: 1px solid black;
+        border-collapse: collapse;
+      }
+</style>
+</html>
+
+<!-- submit.onclick = function(){    
+    var newdata = document.getElementById("newitem").value;    
+    if (newdata == ""){
+        alert("insert data first!");
+    }
+    var numbering = 3;
+    data.push(numbering);
+    numbering++;
+    data.push(newdata)
+    document.getElementById("container").appendChild(myTable);
+} -->
+
+
+<!-- var data = 
     ["No", "Item","Aksi",
      "1", "Cabe keriting","Edit || Delete",
      "2", "Bawang Merah","Edit || Delete" 
@@ -82,14 +107,4 @@ A11.2020.12628 -->
     { 
         row = myTable.insertRow(); }
     }); 
-    document.getElementById("container").appendChild(myTable);
-</script>
-
-<style>
-    table, th, td {
-        padding:5px;
-        border: 1px solid black;
-        border-collapse: collapse;
-      }
-</style>
-</html>
+    document.getElementById("container").appendChild(myTable); -->
