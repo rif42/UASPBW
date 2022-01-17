@@ -24,21 +24,23 @@ A11.2020.12628 -->
         <tr>
             <td>1</td>
             <td>Cabe Keriting</td>
-            <td><span >Edit</span> || Delete</td>
+            <td><span onclick="edit()">Edit</span> || <span onclick="del()">Delete</span></td>
         </tr>
         <tr>
             <td>2</td>
             <td>Bawang Merah</td>
-            <td><span >Edit</span> || Delete</td>
+            <td><span onclick="edit()">Edit</span> || <span onclick="del()">Delete</span></td>
         </tr>
     </table>
 </body>
 
 <script>
     var numbering = 3;
-    function adddata(){    
+    function adddata()
+    {    
         var newdata = document.getElementById("newitem").value;    
-        if (newdata == ""){
+        if (newdata == "")
+        {
             alert("insert data first!");
         }
         var table = document.getElementById("itemtable");
@@ -54,7 +56,10 @@ A11.2020.12628 -->
         numbering++;
     }
 
-
+    function del()
+    {
+        document.getElementById("itemtable").deleteRow(1)
+    }
         
 </script>
 
